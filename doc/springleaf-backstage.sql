@@ -1,8 +1,8 @@
 -- ----------------------------
--- Table structure for backstage_dept
+-- Table structure for sys_dept
 -- ----------------------------
-DROP TABLE IF EXISTS `backstage_dept`;
-CREATE TABLE `backstage_dept` (
+DROP TABLE IF EXISTS `sys_dept`;
+CREATE TABLE `sys_dept` (
   `dept_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '索引编号',
   `dept_code` varchar(50) NOT NULL COMMENT '部门代码',
   `dept_level` tinyint(3) NOT NULL COMMENT '部门级别',
@@ -16,14 +16,14 @@ CREATE TABLE `backstage_dept` (
   `lupd_user` int(11) DEFAULT NULL COMMENT '最后更改人',
   `lupd_datetime` timestamp NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更改时间',
   PRIMARY KEY (`dept_id`),
-  UNIQUE KEY `backstage_dept_dept_code` (`dept_code`) USING BTREE
+  UNIQUE KEY `sys_dept_dept_code` (`dept_code`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='系统-部门表';
 
 -- ----------------------------
--- Table structure for backstage_dictionary
+-- Table structure for sys_dictionary
 -- ----------------------------
-DROP TABLE IF EXISTS `backstage_dictionary`;
-CREATE TABLE `backstage_dictionary` (
+DROP TABLE IF EXISTS `sys_dictionary`;
+CREATE TABLE `sys_dictionary` (
   `dictionary_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '索引编号',
   `dictionary_path` varchar(150) NOT NULL COMMENT '字典路径',
   `dictionary_name` varchar(100) NOT NULL COMMENT '字典名称',
@@ -42,15 +42,15 @@ CREATE TABLE `backstage_dictionary` (
   `lupd_user` int(11) DEFAULT NULL COMMENT '最后更改人',
   `lupd_datetime` timestamp NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更改时间',
   PRIMARY KEY (`dictionary_id`),
-  UNIQUE KEY `backstage_dictionary_dictionary_path` (`dictionary_path`) USING BTREE,
-  KEY `backstage_dictionary_parent_dictionary_id` (`parent_dictionary_id`) USING BTREE
+  UNIQUE KEY `sys_dictionary_dictionary_path` (`dictionary_path`) USING BTREE,
+  KEY `sys_dictionary_parent_dictionary_id` (`parent_dictionary_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='系统--数据字典表';
 
 -- ----------------------------
--- Table structure for backstage_function
+-- Table structure for sys_function
 -- ----------------------------
-DROP TABLE IF EXISTS `backstage_function`;
-CREATE TABLE `backstage_function` (
+DROP TABLE IF EXISTS `sys_function`;
+CREATE TABLE `sys_function` (
   `function_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '索引编号',
   `function_code` varchar(20) NOT NULL COMMENT '功能代码',
   `function_name` varchar(50) NOT NULL COMMENT '功能名称',
@@ -68,18 +68,18 @@ CREATE TABLE `backstage_function` (
   `lupd_user` int(11) DEFAULT NULL COMMENT '最后更改人',
   `lupd_datetime` timestamp NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更改时间',
   PRIMARY KEY (`function_id`),
-  UNIQUE KEY `backstage_function_function_code` (`function_code`) USING BTREE,
-  KEY `backstage_function_parent_function_id` (`parent_function_id`) USING BTREE,
-  KEY `backstage_function_function_url` (`function_url`) USING BTREE,
-  KEY `backstage_function_status` (`status`) USING BTREE,
-  KEY `backstage_function_is_menu` (`is_menu`) USING BTREE
+  UNIQUE KEY `sys_function_function_code` (`function_code`) USING BTREE,
+  KEY `sys_function_parent_function_id` (`parent_function_id`) USING BTREE,
+  KEY `sys_function_function_url` (`function_url`) USING BTREE,
+  KEY `sys_function_status` (`status`) USING BTREE,
+  KEY `sys_function_is_menu` (`is_menu`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='系统-菜单功能表';
 
 -- ----------------------------
--- Table structure for backstage_role
+-- Table structure for sys_role
 -- ----------------------------
-DROP TABLE IF EXISTS `backstage_role`;
-CREATE TABLE `backstage_role` (
+DROP TABLE IF EXISTS `sys_role`;
+CREATE TABLE `sys_role` (
   `role_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '索引编号',
   `role_code` varchar(20) NOT NULL COMMENT '角色代码',
   `role_name` varchar(50) NOT NULL COMMENT '角色名称',
@@ -90,30 +90,30 @@ CREATE TABLE `backstage_role` (
   `lupd_user` int(11) DEFAULT NULL COMMENT '最后更改人',
   `lupd_datetime` timestamp NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更改时间',
   PRIMARY KEY (`role_id`),
-  UNIQUE KEY `backstage_role_role_code` (`role_code`) USING BTREE
+  UNIQUE KEY `sys_role_role_code` (`role_code`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='系统-角色表';
 
 -- ----------------------------
--- Table structure for backstage_role_function
+-- Table structure for sys_role_function
 -- ----------------------------
-DROP TABLE IF EXISTS `backstage_role_function`;
-CREATE TABLE `backstage_role_function` (
+DROP TABLE IF EXISTS `sys_role_function`;
+CREATE TABLE `sys_role_function` (
   `rf_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '索引编号',
   `role_id` int(11) NOT NULL COMMENT '角色编号',
   `function_id` int(11) NOT NULL COMMENT '功能编号',
   `inst_user` int(11) NOT NULL COMMENT '初始写入人',
   `inst_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '初始时间',
   PRIMARY KEY (`rf_id`),
-  UNIQUE KEY `backstage_role_function_role_function` (`role_id`,`function_id`) USING BTREE,
-  KEY `backstage_role_function_role_id` (`role_id`) USING BTREE,
-  KEY `backstage_role_function_function_id` (`function_id`) USING BTREE
+  UNIQUE KEY `sys_role_function_role_function` (`role_id`,`function_id`) USING BTREE,
+  KEY `sys_role_function_role_id` (`role_id`) USING BTREE,
+  KEY `sys_role_function_function_id` (`function_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='系统-角色与菜单对应表';
 
 -- ----------------------------
--- Table structure for backstage_user
+-- Table structure for sys_user
 -- ----------------------------
-DROP TABLE IF EXISTS `backstage_user`;
-CREATE TABLE `backstage_user` (
+DROP TABLE IF EXISTS `sys_user`;
+CREATE TABLE `sys_user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '索引编号',
   `user_code` varchar(20) NOT NULL COMMENT '登录员工号',
   `user_name` varchar(50) NOT NULL COMMENT '登录用户名',
@@ -134,23 +134,23 @@ CREATE TABLE `backstage_user` (
   `lupd_user` int(11) DEFAULT NULL COMMENT '最后更改人',
   `lupd_datetime` timestamp NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更改时间',
   PRIMARY KEY (`user_id`),
-  UNIQUE KEY `backstage_user_user_name` (`user_name`) USING BTREE,
-  UNIQUE KEY `backstage_user_user_code` (`user_code`) USING BTREE,
-  KEY `backstage_user_dept_id` (`dept_id`) USING BTREE
+  UNIQUE KEY `sys_user_user_name` (`user_name`) USING BTREE,
+  UNIQUE KEY `sys_user_user_code` (`user_code`) USING BTREE,
+  KEY `sys_user_dept_id` (`dept_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='系统-用户表';
 
 -- ----------------------------
--- Table structure for backstage_user_role
+-- Table structure for sys_user_role
 -- ----------------------------
-DROP TABLE IF EXISTS `backstage_user_role`;
-CREATE TABLE `backstage_user_role` (
+DROP TABLE IF EXISTS `sys_user_role`;
+CREATE TABLE `sys_user_role` (
   `ur_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '索引编号',
   `user_id` int(11) NOT NULL COMMENT '用户编号',
   `role_id` int(11) NOT NULL COMMENT '角色编号',
   `inst_user` int(11) NOT NULL COMMENT '初始写入人',
   `inst_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '初始时间',
   PRIMARY KEY (`ur_id`),
-  UNIQUE KEY `backstage_user_role_user_role` (`user_id`,`role_id`) USING BTREE,
-  KEY `backstage_user_role_user_id` (`user_id`) USING BTREE,
-  KEY `backstage_user_role_role_id` (`role_id`) USING BTREE
+  UNIQUE KEY `sys_user_role_user_role` (`user_id`,`role_id`) USING BTREE,
+  KEY `sys_user_role_user_id` (`user_id`) USING BTREE,
+  KEY `sys_user_role_role_id` (`role_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='系统-用户与角色对应表';
