@@ -1,4 +1,4 @@
-package com.mhq0123.springleaf.core.bean;
+package com.mhq0123.springleaf.common.bean;
 
 import java.io.Serializable;
 

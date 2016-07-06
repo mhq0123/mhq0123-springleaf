@@ -1,6 +1,6 @@
 package com.mhq0123.springleaf.common.utils;
 
-import com.mhq0123.springleaf.core.bean.InvokeInfo;
+import com.mhq0123.springleaf.common.bean.InvokeInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
