@@ -1,6 +1,6 @@
-package com.mhq0123.springleaf.message.common.annotation;
+package com.mhq0123.springleaf.message.fixedlength.annotation;
 
-import com.mhq0123.springleaf.message.common.type.FieldPadType;
+import com.mhq0123.springleaf.message.common.type.FieldConvertPadType;
 
 /**
  * @author mhq0123
@@ -38,7 +38,7 @@ public @interface FieldFixedLength {
      * 填充方向
      * @return
      */
-    public FieldPadType padType() default FieldPadType.RIGHT;
+    public FieldConvertPadType padType() default FieldConvertPadType.RIGHT;
 
     /**
      * 填充

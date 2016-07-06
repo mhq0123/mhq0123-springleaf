@@ -3,18 +3,19 @@ package com.mhq0123.springleaf.message.common.type;
 /**
  * @author mhq0123
  * @project mhq0123-springleaf
- * @fileName FieldStrategyObtainType
+ * @fileName FieldConvertPadType
  * @date 2016-07-05
- * @memo 转换策略获取方式
+ * @memo 填充方式
  */
-public enum FieldStrategyObtainType {
-    /**
-     * 数据库
-     */
-    DB,
+public enum FieldConvertPadType {
 
     /**
-     * 注解
+     * 左填充
      */
-    ANNOTATION
+    LEFT,
+
+    /**
+     * 右填充
+     */
+    RIGHT
 }
