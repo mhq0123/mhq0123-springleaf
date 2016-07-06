@@ -10,6 +10,7 @@
     <modules>
         <module>springleaf-core</module>
         <module>springleaf-message</module>
+        <module>springleaf-common</module>
     </modules>
 
     <name>springleaf</name>
@@ -44,6 +45,7 @@
         <version.mysql.connector.java>6.0.3</version.mysql.connector.java>
         <version.com.alibaba.fastjson>1.2.13</version.com.alibaba.fastjson>
         <version.jstl>1.2</version.jstl>
+        <version.org.joda.time>2.9.4</version.org.joda.time>
 
         <version.com.mhq0123.springleaf.core>1.0-SNAPSHOT</version.com.mhq0123.springleaf.core>
         <version.com.mhq0123.springleaf.message>1.0-SNAPSHOT</version.com.mhq0123.springleaf.message>
