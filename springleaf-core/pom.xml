@@ -14,6 +14,14 @@
   <name>springleaf-core</name>
   <url>http://maven.apache.org</url>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${version.org.springframework}</version>
+    </dependency>
+  </dependencies>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
