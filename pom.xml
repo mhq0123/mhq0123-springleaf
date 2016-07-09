@@ -11,6 +11,7 @@
         <module>springleaf-core</module>
         <module>springleaf-message</module>
         <module>springleaf-common</module>
+        <module>springleaf-redis</module>
     </modules>
 
     <name>springleaf</name>
@@ -28,7 +29,7 @@
         <version.javax.servlet.api>3.1.0</version.javax.servlet.api>
         <version.javax.servlet.jsp.api>2.2</version.javax.servlet.jsp.api>
         <version.javax.mail>1.4.7</version.javax.mail>
-        <version.junit>4.12</version.junit>
+        <version.org.junit>4.12</version.org.junit>
         <version.org.apache.commons.lang3>3.4</version.org.apache.commons.lang3>
         <version.org.apache.commons.io>2.5</version.org.apache.commons.io>
         <version.org.apache.commons.beanutils>1.9.2</version.org.apache.commons.beanutils>
@@ -46,6 +47,8 @@
         <version.com.alibaba.fastjson>1.2.13</version.com.alibaba.fastjson>
         <version.jstl>1.2</version.jstl>
         <version.org.joda.time>2.9.4</version.org.joda.time>
+        <version.redis.clients.jedis>2.8.1</version.redis.clients.jedis>
+        <version.org.springframework.data.redis>1.7.2.RELEASE</version.org.springframework.data.redis>
 
         <version.com.mhq0123.springleaf.core>1.0-SNAPSHOT</version.com.mhq0123.springleaf.core>
         <version.com.mhq0123.springleaf.message>1.0-SNAPSHOT</version.com.mhq0123.springleaf.message>
