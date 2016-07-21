@@ -1,18 +1,11 @@
 package com.mhq0123.springleaf.redis;
 
+import com.mhq0123.springleaf.redis.service.RedisStringService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import redis.clients.jedis.HostAndPort;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisSentinelPool;
-
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @author mhq0123
@@ -26,13 +19,21 @@ import java.util.Set;
 public class TestRedis {
 
     @Autowired
-    private StringRedisTemplate stringRedisTemplate;
+    private RedisStringService redisStringService;
 
     @Test
-    public void testSentinel() {
-        ValueOperations<String, String> valueOperations = stringRedisTemplate.opsForValue();
-        valueOperations.set("test", "test_test");
-        System.out.print(valueOperations.get("test"));
+    public void testSentinel() throws InterruptedException {
+        int i=1;
+        while(true) {
+            try {
+                redisStringService.set("test", "test_test"+(i++));
+                System.out.println(redisStringService.get("test"));
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
     }
 
 }
