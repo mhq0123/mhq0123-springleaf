@@ -25,7 +25,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
-
+        <!--jars-->
         <version.javax.servlet.api>3.1.0</version.javax.servlet.api>
         <version.javax.servlet.jsp.api>2.2</version.javax.servlet.jsp.api>
         <version.javax.mail>1.4.7</version.javax.mail>
@@ -49,9 +49,82 @@
         <version.org.joda.time>2.9.4</version.org.joda.time>
         <version.redis.clients.jedis>2.8.1</version.redis.clients.jedis>
         <version.org.springframework.data.redis>1.7.2.RELEASE</version.org.springframework.data.redis>
-
+        <!--springleaf-->
         <version.com.mhq0123.springleaf.core>1.0-SNAPSHOT</version.com.mhq0123.springleaf.core>
         <version.com.mhq0123.springleaf.message>1.0-SNAPSHOT</version.com.mhq0123.springleaf.message>
+        <!--plugs-->
+        <version.org.apache.maven.plugins.deploy>2.8.2</version.org.apache.maven.plugins.deploy>
+        <version.org.apache.maven.plugins.source>3.0.1</version.org.apache.maven.plugins.source>
+        <version.com.github.github.plugin.site.maven>0.12</version.com.github.github.plugin.site.maven>
+        <!--server-->
+        <github.global.server>mhq0123-maven-repository</github.global.server>
     </properties>
+
+    <!--本地发布-->
+    <distributionManagement>
+        <repository>
+            <id>mhq0123-maven-repository</id>
+            <name>mhq0123-maven-repository</name>
+            <url>file://${project.build.directory}/mhq0123-maven-repository</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <!--发布插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.deploy}</version>
+                <configuration>
+                    <altDeploymentRepository>mhq0123-maven-repository::default::file://${project.build.directory}/mhq0123-maven-repository</altDeploymentRepository>
+                </configuration>
+            </plugin>
+            <!-- 源码插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.source}</version>
+                <!-- 发布时自动将源码同时发布的配置 -->
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--上传至github-->
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>${version.com.github.github.plugin.site.maven}</version>
+                <configuration>
+                    <!--git commit message-->
+                    <message>Maven artifacts for ${project.version}</message>
+                    <noJekyll>true</noJekyll>
+                    <outputDirectory>${project.build.directory}/mhq0123-maven-repository</outputDirectory>
+                    <!-- github repo name -->
+                    <repositoryName>refs/heads/mhq0123-maven-repository</repositoryName>
+                    <!-- github username  -->
+                    <repositoryOwner>mhq0123</repositoryOwner>
+                    <!-- remote branch name -->
+                    <branch>master</branch>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
