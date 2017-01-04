@@ -56,7 +56,7 @@
         <version.org.apache.maven.plugins.deploy>2.8.2</version.org.apache.maven.plugins.deploy>
         <version.org.apache.maven.plugins.source>3.0.1</version.org.apache.maven.plugins.source>
         <version.com.github.github.plugin.site.maven>0.12</version.com.github.github.plugin.site.maven>
-        <!--server-->
+        <!--server TODO-->
         <github.global.server>mhq0123-maven-repository</github.global.server>
     </properties>
 
@@ -101,19 +101,22 @@
                 <artifactId>site-maven-plugin</artifactId>
                 <version>${version.com.github.github.plugin.site.maven}</version>
                 <configuration>
+                    <!--setting.xml server id-->
+                    <!--<server>mhq0123-maven-repository</server>-->
                     <!--git commit message-->
                     <message>Maven artifacts for ${project.version}</message>
                     <noJekyll>true</noJekyll>
                     <outputDirectory>${project.build.directory}/mhq0123-maven-repository</outputDirectory>
                     <!-- github repo name -->
-                    <repositoryName>refs/heads/mhq0123-maven-repository</repositoryName>
+                    <repositoryName>mhq0123-maven-repository</repositoryName>
                     <!-- github username  -->
                     <repositoryOwner>mhq0123</repositoryOwner>
                     <!-- remote branch name -->
-                    <branch>master</branch>
+                    <branch>refs/heads/master</branch>
                     <includes>
                         <include>**/*</include>
                     </includes>
+                    <merge>true</merge>
                 </configuration>
                 <executions>
                     <execution>
