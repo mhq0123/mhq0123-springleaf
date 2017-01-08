@@ -49,7 +49,14 @@
         <version.org.joda.time>2.9.4</version.org.joda.time>
         <version.redis.clients.jedis>2.8.1</version.redis.clients.jedis>
         <version.org.springframework.data.redis>1.7.2.RELEASE</version.org.springframework.data.redis>
+        <version.org.springframework.boot>1.4.2.RELEASE</version.org.springframework.boot>
+        <version.org.springframework.web>3.2.2.RELEASE</version.org.springframework.web>
+        <version.javax.javaee.api>7.0</version.javax.javaee.api>
+        <version.org.springframework.webmvc>4.3.2.RELEASE</version.org.springframework.webmvc>
+        <version.com.alibaba.druid>1.0.27</version.com.alibaba.druid>
+        <version.org.aspectj.aspectjrt>1.8.10</version.org.aspectj.aspectjrt>
         <!--springleaf-->
+        <version.com.mhq0123.springleaf.common>1.0-SNAPSHOT</version.com.mhq0123.springleaf.common>
         <version.com.mhq0123.springleaf.core>1.0-SNAPSHOT</version.com.mhq0123.springleaf.core>
         <version.com.mhq0123.springleaf.message>1.0-SNAPSHOT</version.com.mhq0123.springleaf.message>
         <!--plugs-->

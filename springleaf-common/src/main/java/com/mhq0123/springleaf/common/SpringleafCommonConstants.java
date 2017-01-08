@@ -3,11 +3,11 @@ package com.mhq0123.springleaf.common;
 /**
  * @author mhq0123
  * @project mhq0123-springleaf
- * @fileName CommonConstants
+ * @fileName SpringleafCommonConstants
  * @date 2016-07-06
  * @memo 常量
  */
-public class CommonConstants {
+public class SpringleafCommonConstants {
     /** 操作系统*/
     public final static class OS {
         /** 换行符*/

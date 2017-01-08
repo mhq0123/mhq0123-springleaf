@@ -16,6 +16,11 @@
 
   <dependencies>
     <dependency>
+      <groupId>com.mhq0123.springleaf</groupId>
+      <artifactId>springleaf-common</artifactId>
+      <version>${version.com.mhq0123.springleaf.common}</version>
+    </dependency>
+    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
       <version>${version.org.springframework}</version>
@@ -24,6 +29,39 @@
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>${version.org.apache.commons.lang3}</version>
+    </dependency>
+    <!--context-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot</artifactId>
+      <version>${version.org.springframework.boot}</version>
+    </dependency>
+    <!--切面-->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>${version.org.aspectj.aspectjrt}</version>
+    </dependency>
+    <!-- 数据库连接池 -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>${version.com.alibaba.druid}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${version.org.springframework.webmvc}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${version.org.springframework.web}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>${version.javax.javaee.api}</version>
     </dependency>
   </dependencies>
 

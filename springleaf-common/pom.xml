@@ -39,6 +39,12 @@
             <artifactId>joda-time</artifactId>
             <version>${version.org.joda.time}</version>
         </dependency>
+        <!--json 处理-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${version.com.alibaba.fastjson}</version>
+        </dependency>
 
     </dependencies>
 </project>
