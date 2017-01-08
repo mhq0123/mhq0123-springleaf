@@ -8,6 +8,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  * desc:    controller层日志切面
  */
 @Aspect
+@Component
 public class ControllerLogAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(ControllerLogAspect.class);
@@ -59,7 +61,7 @@ public class ControllerLogAspect {
             logger.info(">>>>>>>>>>>>>>ControllerLogAspect.doAfterReturning");
             logger.info(">>>>>>>>>>>>>>return:{}", proceedingJoinPoint.proceed());
         } catch (Throwable t) {
-            logger.error(">>>>>>>>>>>>>>ControllerLogAspect.doAfterReturning exception:{}", t.getMessage(), t);
+            logger.error(">>>>>>>>>>>>>>execute exception:{}", t.getMessage(), t);
         }
         logger.info(">>>>>>>>>>>>>>cost time:{}", System.currentTimeMillis() - startTime.get());
     }

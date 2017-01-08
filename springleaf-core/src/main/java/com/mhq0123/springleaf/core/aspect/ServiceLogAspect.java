@@ -8,6 +8,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
  * project: springleaf
@@ -16,6 +17,7 @@ import org.slf4j.LoggerFactory;
  * desc:    service层日志切面
  */
 @Aspect
+@Component
 public class ServiceLogAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(ServiceLogAspect.class);
@@ -51,7 +53,7 @@ public class ServiceLogAspect {
             logger.info(">>>>>>>>>>>>>>ServiceLogAspect.doAfterReturning");
             logger.info(">>>>>>>>>>>>>>return:{}", proceedingJoinPoint.proceed());
         } catch (Throwable t) {
-            logger.error(">>>>>>>>>>>>>>ServiceLogAspect.doAfterReturning exception:{}", t.getMessage(), t);
+            logger.error(">>>>>>>>>>>>>>execute exception:{}", t.getMessage(), t);
         }
         logger.info(">>>>>>>>>>>>>>cost time:{}", System.currentTimeMillis() - startTime.get());
 

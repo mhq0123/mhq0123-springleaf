@@ -63,6 +63,12 @@
       <artifactId>javaee-api</artifactId>
       <version>${version.javax.javaee.api}</version>
     </dependency>
+    <!--参数校验-->
+    <dependency>
+      <groupId>net.sf.oval</groupId>
+      <artifactId>oval</artifactId>
+      <version>${version.net.sf.oval}</version>
+    </dependency>
   </dependencies>
 
   <properties>

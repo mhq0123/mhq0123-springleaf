@@ -55,6 +55,7 @@
         <version.org.springframework.webmvc>4.3.2.RELEASE</version.org.springframework.webmvc>
         <version.com.alibaba.druid>1.0.27</version.com.alibaba.druid>
         <version.org.aspectj.aspectjrt>1.8.10</version.org.aspectj.aspectjrt>
+        <version.net.sf.oval>1.86</version.net.sf.oval>
         <!--springleaf-->
         <version.com.mhq0123.springleaf.common>1.0-SNAPSHOT</version.com.mhq0123.springleaf.common>
         <version.com.mhq0123.springleaf.core>1.0-SNAPSHOT</version.com.mhq0123.springleaf.core>

@@ -8,6 +8,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
  * project: springleaf
@@ -16,6 +17,7 @@ import org.slf4j.LoggerFactory;
  * desc:    mapper层日志切面
  */
 @Aspect
+@Component
 public class MapperLogAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(MapperLogAspect.class);
@@ -51,7 +53,7 @@ public class MapperLogAspect {
             logger.info(">>>>>>>>>>>>>>MapperLogAspect.doAfterReturning");
             logger.info(">>>>>>>>>>>>>>return:{}", proceedingJoinPoint.proceed());
         } catch (Throwable t) {
-            logger.error(">>>>>>>>>>>>>>MapperLogAspect.doAfterReturning exception:{}", t.getMessage(), t);
+            logger.error(">>>>>>>>>>>>>>execute exception:{}", t.getMessage(), t);
         }
         logger.info(">>>>>>>>>>>>>>cost time:{}", System.currentTimeMillis() - startTime.get());
     }

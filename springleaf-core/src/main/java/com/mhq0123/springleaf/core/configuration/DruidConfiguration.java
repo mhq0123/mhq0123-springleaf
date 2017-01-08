@@ -5,6 +5,7 @@ import com.alibaba.druid.support.http.WebStatFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * project: springleaf
@@ -12,7 +13,7 @@ import org.springframework.context.annotation.Bean;
  * date:    2017/1/8.
  * desc:    Druid数据源配置
  */
-//@Configuration
+@Configuration
 public class DruidConfiguration {
 
     /** 白名单*/
