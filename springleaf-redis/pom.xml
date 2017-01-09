@@ -22,41 +22,20 @@
 
     <dependencies>
         <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>${version.redis.clients.jedis}</version>
+            <groupId>com.mhq0123.springleaf</groupId>
+            <artifactId>springleaf-common</artifactId>
+            <version>${version.com.mhq0123.springleaf.common}</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-redis</artifactId>
-            <version>${version.org.springframework.data.redis}</version>
+            <groupId>com.mhq0123.springleaf</groupId>
+            <artifactId>springleaf-core</artifactId>
+            <version>${version.com.mhq0123.springleaf.core}</version>
         </dependency>
+        <!--redis-->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${version.org.springframework}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-redis</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${version.org.springframework}</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${version.org.junit}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${version.org.slf4j}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${version.org.slf4j}</version>
-        </dependency>
-
     </dependencies>
 
 </project>

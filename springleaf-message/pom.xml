@@ -16,30 +16,14 @@
     <dependencies>
         <dependency>
             <groupId>com.mhq0123.springleaf</groupId>
+            <artifactId>springleaf-common</artifactId>
+            <version>${version.com.mhq0123.springleaf.common}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mhq0123.springleaf</groupId>
             <artifactId>springleaf-core</artifactId>
             <version>${version.com.mhq0123.springleaf.core}</version>
         </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${version.org.slf4j}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${version.com.alibaba.fastjson}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${version.org.apache.commons.lang3}</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-beanutils</groupId>
-            <artifactId>commons-beanutils</artifactId>
-            <version>${version.org.apache.commons.beanutils}</version>
-        </dependency>
-
     </dependencies>
 
     <properties>

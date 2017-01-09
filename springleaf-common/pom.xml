@@ -19,6 +19,16 @@
     </properties>
 
     <dependencies>
+        <!--自动依赖日志-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+        <!--测试-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -30,10 +40,11 @@
             <version>${version.org.apache.commons.compress}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${version.org.slf4j}</version>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${version.org.apache.commons.beanutils}</version>
         </dependency>
+        <!--时间处理-->
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
@@ -45,6 +56,5 @@
             <artifactId>fastjson</artifactId>
             <version>${version.com.alibaba.fastjson}</version>
         </dependency>
-
     </dependencies>
 </project>
