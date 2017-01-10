@@ -17,7 +17,7 @@ public class DruidConfiguration {
     /** 白名单*/
     private String allowIps = "127.0.0.1";
     /** 黑名单*/
-    private String denyIps;
+    private String denyIps = "";
     /** 登陆账号*/
     private String loginUsername = "mhq0123";
     /** 登陆密码*/
