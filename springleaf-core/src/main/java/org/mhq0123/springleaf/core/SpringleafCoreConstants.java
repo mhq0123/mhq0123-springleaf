@@ -12,6 +12,6 @@ public class SpringleafCoreConstants {
     /** 跨域*/
     public final static class Cors {
         /** 换行符*/
-        public static final String MAPPING = "/api/*/**";
+        public static final String MAPPING = "/*/**";
     }
 }
