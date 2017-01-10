@@ -120,38 +120,38 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--上传至github-->
-            <plugin>
-                <groupId>com.github.github</groupId>
-                <artifactId>site-maven-plugin</artifactId>
-                <version>${version.com.github.github.plugin.site.maven}</version>
-                <configuration>
-                    <!--setting.xml server id-->
-                    <!--<server>mhq0123-maven-repository</server>-->
-                    <!--git commit message-->
-                    <message>Maven artifacts for ${project.version}</message>
-                    <noJekyll>true</noJekyll>
-                    <outputDirectory>${project.build.directory}/mhq0123-maven-repository</outputDirectory>
-                    <!-- github repo name -->
-                    <repositoryName>mhq0123-maven-repository</repositoryName>
-                    <!-- github username  -->
-                    <repositoryOwner>mhq0123</repositoryOwner>
-                    <!-- remote branch name -->
-                    <branch>refs/heads/master</branch>
-                    <includes>
-                        <include>**/*</include>
-                    </includes>
-                    <merge>true</merge>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>site</goal>
-                        </goals>
-                        <phase>deploy</phase>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--&lt;!&ndash;上传至github&ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>com.github.github</groupId>-->
+                <!--<artifactId>site-maven-plugin</artifactId>-->
+                <!--<version>${version.com.github.github.plugin.site.maven}</version>-->
+                <!--<configuration>-->
+                    <!--&lt;!&ndash;setting.xml server id&ndash;&gt;-->
+                    <!--&lt;!&ndash;<server>mhq0123-maven-repository</server>&ndash;&gt;-->
+                    <!--&lt;!&ndash;git commit message&ndash;&gt;-->
+                    <!--<message>Maven artifacts for ${project.version}</message>-->
+                    <!--<noJekyll>true</noJekyll>-->
+                    <!--<outputDirectory>${project.build.directory}/mhq0123-maven-repository</outputDirectory>-->
+                    <!--&lt;!&ndash; github repo name &ndash;&gt;-->
+                    <!--<repositoryName>mhq0123-maven-repository</repositoryName>-->
+                    <!--&lt;!&ndash; github username  &ndash;&gt;-->
+                    <!--<repositoryOwner>mhq0123</repositoryOwner>-->
+                    <!--&lt;!&ndash; remote branch name &ndash;&gt;-->
+                    <!--<branch>refs/heads/master</branch>-->
+                    <!--<includes>-->
+                        <!--<include>**/*</include>-->
+                    <!--</includes>-->
+                    <!--<merge>true</merge>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>site</goal>-->
+                        <!--</goals>-->
+                        <!--<phase>deploy</phase>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 
