@@ -30,12 +30,6 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-aop</artifactId>
     </dependency>
-    <!--参数校验-->
-    <dependency>
-      <groupId>net.sf.oval</groupId>
-      <artifactId>oval</artifactId>
-      <version>${version.net.sf.oval}</version>
-    </dependency>
     <!-- 数据库连接池 -->
     <dependency>
       <groupId>com.alibaba</groupId>

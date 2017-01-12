@@ -1,8 +1,8 @@
-package org.mhq0123.springleaf.core.utils;
+package org.mhq0123.springleaf.common.utils;
 
-import org.mhq0123.springleaf.core.annotation.Comment;
 import org.apache.commons.lang3.EnumUtils;
-import org.springframework.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.mhq0123.springleaf.common.annotation.Comment;
 
 import java.util.List;
 

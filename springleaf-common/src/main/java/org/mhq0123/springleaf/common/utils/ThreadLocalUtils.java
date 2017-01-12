@@ -11,37 +11,34 @@ import java.util.Map;
  * @memo 线程变量缓存
  */
 public class ThreadLocalUtils {
-    /**
-     * 静态内部类,利用ThreadLocal模拟线程变量
-     */
+    private ThreadLocalUtils(){}
 
-    /**	模拟线程缓存	*/
-    private static ThreadLocal<Map<String, Object>> data = new ThreadLocal<Map<String, Object>>();
+    private static ThreadLocal<Map<String, Object>> threadLocal = new ThreadLocal<Map<String, Object>>();
 
     /**
-     * 在当前线程上下文中存放一个键值对
+     * put数据
      * @param key
      * @param value
      */
     public static void put(String key, Object value) {
-        if(null == data.get()) {
-            data.set(new HashMap<String, Object>());
+        Map<String, Object> data = threadLocal.get();
+        if(null == data) {
+            threadLocal.set(new HashMap<String, Object>());
         }
-        Map<String, Object> map = data.get();
-        map.put(key, value);
+        threadLocal.get().put(key, value);
     }
 
     /**
-     * 从当前线程上线文中查找变量
+     * 获取数据
      * @param key
      * @return
      */
     public static Object get(String key) {
-        Map<String, Object> map = data.get();
-        if(null == map) {
+        Map<String, Object> data = threadLocal.get();
+        if(null == data) {
             return null;
         }
-        return map.get(key);
+        return data.get(key);
     }
 
     /**
@@ -50,34 +47,37 @@ public class ThreadLocalUtils {
      * @param clazz
      * @return
      */
-    @SuppressWarnings("unchecked")
     public static <T> T get(String key, Class<T> clazz) {
-        Map<String, Object> map = data.get();
-        if(null == map) {
+        Map<String, Object> data = threadLocal.get();
+        if(null == data) {
             return null;
         }
-        return (T) map.get(key);
+        return (T)data.get(key);
     }
 
     /**
-     * 从当前线程上线文中清除
+     * 移除单个数据
      * @param key
      * @return
      */
-    public static void remove(String key) {
-        Map<String, Object> map = data.get();
-        if(null == map) {
-            return;
+    public static Object remove(String key) {
+        Map<String, Object> data = threadLocal.get();
+        if(null == data) {
+            return null;
         }
-        map.remove(key);
+        return data.remove(key);
     }
 
     /**
-     * 从当前线程上线文中清除所有变量
-     * @return
+     * 清除所有数据
      */
-    public static void clearAll() {
-        data.remove();
+    public static void removeAll() {
+        Map<String, Object> data = threadLocal.get();
+        if(null == data) {
+            return;
+        }
+        data.clear();
+        threadLocal.remove();
     }
 
 }

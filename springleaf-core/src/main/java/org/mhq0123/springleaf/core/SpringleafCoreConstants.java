@@ -14,4 +14,10 @@ public class SpringleafCoreConstants {
         /** 换行符*/
         public static final String MAPPING = "/api/*/**";
     }
+
+    /** 请求*/
+    public final static class Request {
+        /** 请求ip*/
+        public static final String IP = "REQUEST_IP";
+    }
 }
