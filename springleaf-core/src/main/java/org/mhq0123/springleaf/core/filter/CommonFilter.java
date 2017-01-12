@@ -23,7 +23,7 @@ public class CommonFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
+        logger.info(">>>>>>>>>>>>>>CommonFilter started ...");
     }
 
     @Override

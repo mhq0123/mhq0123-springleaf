@@ -2,9 +2,14 @@ package org.mhq0123.springleaf.core.configuration;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import com.alibaba.fastjson.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+
+import javax.annotation.PostConstruct;
 
 /**
  * project: springleaf
@@ -13,6 +18,13 @@ import org.springframework.context.annotation.Bean;
  * desc:    Druid数据源配置
  */
 public class DruidConfiguration {
+
+    private static final Logger logger = LoggerFactory.getLogger(DruidConfiguration.class);
+
+    @PostConstruct
+    public void init() {
+        logger.info(">>>>>>>>>>>>>>DruidConfiguration started:{} ...", JSONObject.toJSONString(this, true));
+    }
 
     /** 白名单*/
     private String allowIps = "127.0.0.1";
@@ -33,6 +45,7 @@ public class DruidConfiguration {
      */
     @Bean
     public ServletRegistrationBean druidStatViewServlet(){
+        logger.info(">>>>>>>>>>>>>>druidStatViewServlet init start...");
 
         //org.springframework.boot.context.embedded.ServletRegistrationBean提供类的进行注册.
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), this.getDruidPath() + "/*");
@@ -49,6 +62,8 @@ public class DruidConfiguration {
         //是否能够重置数据.
         servletRegistrationBean.addInitParameter("resetEnable", this.getResetEnable());
 
+        logger.info(">>>>>>>>>>>>>>druidStatViewServlet init success");
+
         return servletRegistrationBean;
     }
 
@@ -58,6 +73,7 @@ public class DruidConfiguration {
      */
     @Bean
     public FilterRegistrationBean druidStatFilter(){
+        logger.info(">>>>>>>>>>>>>>druidStatFilter init start...");
 
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(new WebStatFilter());
 
@@ -67,6 +83,7 @@ public class DruidConfiguration {
         //添加需要忽略的格式信息.
         filterRegistrationBean.addInitParameter("exclusions","*.js,*.gif,*.jpg,*.png,*.css,*.ico,"+this.druidPath+"/*");
 
+        logger.info(">>>>>>>>>>>>>>druidStatFilter init success");
         return filterRegistrationBean;
     }
 

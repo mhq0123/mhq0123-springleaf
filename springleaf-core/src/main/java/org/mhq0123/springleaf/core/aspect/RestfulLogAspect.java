@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -23,6 +24,11 @@ import javax.servlet.http.HttpServletRequest;
 public class RestfulLogAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(RestfulLogAspect.class);
+
+    @PostConstruct
+    public void init() {
+        logger.info(">>>>>>>>>>>>>>RestfulLogAspect started ...");
+    }
 
     /**
      * 定义一个切入点.

@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
 /**
  * project: springleaf
  * author:  mhq0123
@@ -19,6 +21,11 @@ import org.springframework.stereotype.Component;
 public class ServiceLogAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(ServiceLogAspect.class);
+
+    @PostConstruct
+    public void init() {
+        logger.info(">>>>>>>>>>>>>>ServiceLogAspect started ...");
+    }
 
     /**
      * 定义一个切入点.

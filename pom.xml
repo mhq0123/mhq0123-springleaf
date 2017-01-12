@@ -37,6 +37,7 @@
         <version.org.joda.time>2.9.4</version.org.joda.time>
         <version.com.alibaba.druid>1.0.27</version.com.alibaba.druid>
         <version.net.sf.oval>1.86</version.net.sf.oval>
+        <version.net.sf.ehcache>2.10.3</version.net.sf.ehcache>
         <!--springleaf-->
         <version.com.mhq0123.springleaf.common>1.0-SNAPSHOT</version.com.mhq0123.springleaf.common>
         <version.com.mhq0123.springleaf.core>1.0-SNAPSHOT</version.com.mhq0123.springleaf.core>

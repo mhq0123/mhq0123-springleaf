@@ -1,9 +1,13 @@
 package org.mhq0123.springleaf.core.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Repository;
+
+import javax.annotation.PostConstruct;
 
 /**
  * @author mhq0123
@@ -14,6 +18,13 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class SpringUtils implements ApplicationContextAware {
+
+    private static final Logger logger = LoggerFactory.getLogger(SpringUtils.class);
+
+    @PostConstruct
+    public void init() {
+        logger.info(">>>>>>>>>>>>>>SpringUtils started ...");
+    }
 
     private static ApplicationContext applicationContext;
 

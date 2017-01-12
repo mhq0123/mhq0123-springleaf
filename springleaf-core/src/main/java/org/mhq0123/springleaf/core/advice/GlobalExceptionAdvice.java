@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -15,6 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 public class GlobalExceptionAdvice {
 
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionAdvice.class);
+
+    @PostConstruct
+    public void init() {
+        logger.info(">>>>>>>>>>>>>>GlobalExceptionAdvice started ...");
+    }
 
     @ExceptionHandler(value = Exception.class)
     public void defaultErrorHandler(HttpServletRequest httpServletRequest, Exception e)  {

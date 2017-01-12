@@ -36,6 +36,17 @@
       <artifactId>druid</artifactId>
       <version>${version.com.alibaba.druid}</version>
     </dependency>
+    <!--开启缓存-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-cache</artifactId>
+    </dependency>
+    <!-- 集成ehcache需要的依赖-->
+    <dependency>
+      <groupId>net.sf.ehcache</groupId>
+      <artifactId>ehcache</artifactId>
+      <version>${version.net.sf.ehcache}</version>
+    </dependency>
   </dependencies>
 
   <properties>
