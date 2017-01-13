@@ -67,6 +67,22 @@ public class EhcacheUtils {
     }
 
     /**
+     * 获取单个
+     * @param cacheName
+     * @param key
+     * @param clzz
+     * @param <T>
+     * @return
+     */
+    public <T> T cacheGet(String cacheName, String key, Class<T> clzz) {
+        logger.info(">>>>>>>>>>>>>>cacheGet cacheName:{},key:{}, clzz:{}", cacheName, key, clzz);
+        Element element = cacheManager.getCache(cacheName).get(key);
+        Object value = element == null ? null : element.getObjectValue();
+        logger.info(">>>>>>>>>>>>>>cacheGet value:{}", JSONObject.toJSONString(value, true));
+        return (T)value;
+    }
+
+    /**
      * 获取一组
      * @param cacheName
      * @return
