@@ -1,6 +1,8 @@
 package org.mhq0123.springleaf.common.utils;
 
 import org.joda.time.DateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author mhq0123
@@ -10,6 +12,9 @@ import org.joda.time.DateTime;
  * @memo 序号工具
  */
 public class SequenceUtils {
+
+    private static final Logger logger = LoggerFactory.getLogger(SequenceUtils.class);
+
     /** 循环值1  长度5位 */
     private static long CYC_NUM_5 = 1;
 
@@ -28,7 +33,9 @@ public class SequenceUtils {
     public static String getNext_28() {
         String currSeq = String.valueOf(getCycNum_5());
 
-        return InetUtils.getLastSplitIp_6l() + new DateTime().toString("yyyyMMddHHmmssSSS") + fillLeftWith0(currSeq, 5);
+        String sequence = InetUtils.getLastSplitIp_6l() + new DateTime().toString("yyyyMMddHHmmssSSS") + fillLeftWith0(currSeq, 5);
+        logger.info(">>>>>>>>>>>>>>create sequence:{}", sequence);
+        return sequence;
     }
 
     /**
@@ -40,7 +47,9 @@ public class SequenceUtils {
     public static String getNext_30() {
         String currSeq = String.valueOf(getCycNum_7());
 
-        return InetUtils.getLastSplitIp_6l() + new DateTime().toString("yyyyMMddHHmmssSSS") + fillLeftWith0(currSeq, 7);
+        String sequence =  InetUtils.getLastSplitIp_6l() + new DateTime().toString("yyyyMMddHHmmssSSS") + fillLeftWith0(currSeq, 7);
+        logger.info(">>>>>>>>>>>>>>create sequence:{}", sequence);
+        return sequence;
     }
 
     /**
@@ -52,7 +61,9 @@ public class SequenceUtils {
     public static String getNext_32() {
         String currSeq = String.valueOf(getCycNum_9());
 
-        return InetUtils.getLastSplitIp_6l() + new DateTime().toString("yyyyMMddHHmmssSSS") + fillLeftWith0(currSeq, 9);
+        String sequence = InetUtils.getLastSplitIp_6l() + new DateTime().toString("yyyyMMddHHmmssSSS") + fillLeftWith0(currSeq, 9);
+        logger.info(">>>>>>>>>>>>>>create sequence:{}", sequence);
+        return sequence;
     }
 
     /**

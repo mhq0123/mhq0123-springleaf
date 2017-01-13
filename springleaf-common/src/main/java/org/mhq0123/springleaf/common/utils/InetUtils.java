@@ -1,6 +1,8 @@
 package org.mhq0123.springleaf.common.utils;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.InetAddress;
 
@@ -12,6 +14,9 @@ import java.net.InetAddress;
  * @memo
  */
 public class InetUtils {
+
+    private static final Logger logger = LoggerFactory.getLogger(InetUtils.class);
+
     private InetUtils(){}
 
     private static String hostAddress = null;
@@ -34,6 +39,7 @@ public class InetUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        logger.info(">>>>>>>>>>>>>>get host address:{}", hostAddress);
         return hostAddress;
     }
 
@@ -46,6 +52,7 @@ public class InetUtils {
             String[] ips = InetUtils.getHostAddress().split("\\.");
             lastSplitIp_3l = StringUtils.leftPad(ips[ips.length-1], 3, '0');
         }
+        logger.info(">>>>>>>>>>>>>>get host address lastSplitIp_3l:{}", lastSplitIp_3l);
         return lastSplitIp_3l;
     }
 
@@ -58,6 +65,7 @@ public class InetUtils {
             String[] ips = InetUtils.getHostAddress().split("\\.");
             lastSplitIp_6l = StringUtils.leftPad(ips[ips.length-2], 3, '0') + StringUtils.leftPad(ips[ips.length-1], 3, '0');
         }
+        logger.info(">>>>>>>>>>>>>>get host address lastSplitIp_6l:{}", lastSplitIp_6l);
         return lastSplitIp_6l;
     }
 }

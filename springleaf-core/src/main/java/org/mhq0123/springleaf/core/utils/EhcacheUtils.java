@@ -1,8 +1,11 @@
 package org.mhq0123.springleaf.core.utils;
 
+import com.alibaba.fastjson.JSONObject;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author mhq0123
@@ -12,6 +15,8 @@ import net.sf.ehcache.Element;
  * @memo
  */
 public class EhcacheUtils {
+
+    private static final Logger logger = LoggerFactory.getLogger(EhcacheUtils.class);
   
     private static CacheManager cacheManager = SpringUtils.getBean(CacheManager.class);
   
@@ -29,6 +34,7 @@ public class EhcacheUtils {
             synchronized (EhcacheUtils.class) {
                 if(instance == null){//二次检查
                     instance = new EhcacheUtils();
+                    logger.info(">>>>>>>>>>>>>>instance success...");
                 }
             }
         }
@@ -42,6 +48,7 @@ public class EhcacheUtils {
      * @param value
      */
     public void cachePut(String cacheName, String key, Object value) {
+        logger.info(">>>>>>>>>>>>>>cachePut cacheName:{},key:{},value:{}", cacheName, key, JSONObject.toJSONString(value, true));
         cacheManager.getCache(cacheName).put(new Element(key, value));
     }
 
@@ -52,8 +59,11 @@ public class EhcacheUtils {
      * @return
      */
     public Object cacheGet(String cacheName, String key) {
+        logger.info(">>>>>>>>>>>>>>cacheGet cacheName:{},key:{}", cacheName, key);
         Element element = cacheManager.getCache(cacheName).get(key);
-        return element == null ? null : element.getObjectValue();
+        Object value = element == null ? null : element.getObjectValue();
+        logger.info(">>>>>>>>>>>>>>cacheGet value:{}", JSONObject.toJSONString(value, true));
+        return value;
     }
 
     /**
@@ -62,6 +72,7 @@ public class EhcacheUtils {
      * @return
      */
     public Cache cacheGet(String cacheName) {
+        logger.info(">>>>>>>>>>>>>>cacheGet cacheName:{}", cacheName);
         return cacheManager.getCache(cacheName);
     }
 
@@ -71,11 +82,15 @@ public class EhcacheUtils {
      * @param key
      */
     public void cacheEvict(String cacheName, String key) {
+        logger.info(">>>>>>>>>>>>>>cacheEvict cacheName:{}, key:{}", cacheName, key);
         cacheManager.getCache(cacheName).remove(key);
+        logger.info(">>>>>>>>>>>>>>cacheEvict success...");
     }
 
     public void cacheEvict(String cacheName) {
+        logger.info(">>>>>>>>>>>>>>cacheEvict cacheName:{}", cacheName);
         cacheManager.getCache(cacheName).removeAll();
+        logger.info(">>>>>>>>>>>>>>cacheEvict success...");
     }
   
 }  
