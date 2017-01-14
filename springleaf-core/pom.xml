@@ -47,6 +47,11 @@
       <artifactId>ehcache</artifactId>
       <version>${version.net.sf.ehcache}</version>
     </dependency>
+    <!--邮件-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-mail</artifactId>
+    </dependency>
   </dependencies>
 
   <properties>
