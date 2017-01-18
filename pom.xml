@@ -48,16 +48,21 @@
         <version.com.github.github.plugin.site.maven>0.12</version.com.github.github.plugin.site.maven>
         <version.org.apache.maven.surefire.plugin>2.19.1</version.org.apache.maven.surefire.plugin>
         <!--server TODO-->
-        <github.global.server>mhq0123-maven-repository</github.global.server>
+        <!--<github.global.server>mhq0123-maven-repository</github.global.server>-->
     </properties>
 
-    <!--本地发布-->
+    <!--发布-->
     <distributionManagement>
         <repository>
-            <id>mhq0123-maven-repository</id>
-            <name>mhq0123-maven-repository</name>
-            <url>file://${project.build.directory}/mhq0123-maven-repository</url>
+            <id>mhq0123-releases</id>
+            <name>mhq0123-releases</name>
+            <url>http://133.130.114.183:8081/repository/maven-releases/</url>
         </repository>
+        <snapshotRepository>
+            <id>mhq0123-snapshots</id>
+            <name>mhq0123-snapshots</name>
+            <url>http://133.130.114.183:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <dependencyManagement>
@@ -98,14 +103,11 @@
                 </configuration>
             </plugin>
             <!--发布插件-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>${version.org.apache.maven.plugins.deploy}</version>
-                <configuration>
-                    <altDeploymentRepository>mhq0123-maven-repository::default::file://${project.build.directory}/mhq0123-maven-repository</altDeploymentRepository>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-deploy-plugin</artifactId>-->
+                <!--<version>${version.org.apache.maven.plugins.deploy}</version>-->
+            <!--</plugin>-->
             <!-- 源码插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
