@@ -11,6 +11,7 @@
         <module>springleaf-core</module>
         <module>springleaf-message</module>
         <module>springleaf-common</module>
+        <module>springleaf-task</module>
     </modules>
 
     <name>springleaf</name>
